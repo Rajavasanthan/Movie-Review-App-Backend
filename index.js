@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 
 app.get('/get-all-movies', (req, res) => {
     Movie.find()
+        .select({ imageurl: 1 })
         .then((movies) => {
             res.json(movies);
         }, (err) => {
